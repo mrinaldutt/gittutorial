@@ -1,0 +1,1 @@
+https://github.com/scm-ninja/starter-web.git
