@@ -147,5 +147,43 @@ git commit <commitId>
 
 ---------------------------------
 
+Git Alias:
+need to configure in global file:
+git config --global alias.hist "log--all --graph --decorate --oneline" 
 
+git searches for alias and find the hist.
+
+now try with:  git hist
+
+All of the alias are stored inside the .gitconfig file.
+---------------------------------
+Git ignore:
+specific file: MyFile.txt
+File pattern: *.ext
+Folder: my-folder
+
+create .gitignore
+-------------------------------------
+
+Merge Tool:
+Visual Diff/ Merge Tool Setup:
+P4Merge for windows
+Git configuration
+
+install p4merge from https://www.perforce.com/
+now set the path in environment variable for p4merge installer path.
+Now go to command prompt: try p4merge
+
+Now set the p4merge in git global configuration:
+git config --global merge.tool p4merge
+git config --global mergetool.p4merge.path "c:/program files/Perforce/p4merge.exe"
+Dont want every time merge tool : git config --global mergetool.prompt false 
+
+Set for diff tool:
+git config --global diff.tool p4merge
+git config --global difftool.p4merge.path "c:/program files/Perforce/p4merge.exe"
+Dont want every time diff tool : git config --global difftool.prompt false 
+
+Now check :
+git config --global --list
 
