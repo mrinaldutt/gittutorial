@@ -187,3 +187,5 @@ Dont want every time diff tool : git config --global difftool.prompt false
 Now check :
 git config --global --list
 
+---------------------------
+Git
