@@ -188,4 +188,39 @@ Now check :
 git config --global --list
 
 ---------------------------
-Git
+Comparing staging and working directory:
+
+git diff
+
+also check using p4merge:
+git difftool 
+
+comparing working and repository:
+git diff HEAD
+
+git difftool HEAD
+
+comparing betwen staging and repository:
+git diff --staged HEAD
+
+Using p4merge:
+git difftool --staged HEAD
+
+
+specfic to only readme.md file: git difftool readme.md
+--------------------------------------------------------------------------------------------------------------
+Comparing between commits:
+
+1. get the history : $ git log --oneline
+2.comparing 2 arbtary git commit:git diff <commitid> HEAD
+3 Comparing beteen head and head-1 Or last commit and last commit -1 : git diff HEAD HEAD^
+4. git difftool <commit id 1> <commit id 2>
+
+----------------------------------------------------------------------------------------------------------------------
+
+comparing local master branch and remote master brnch:
+git diff master origin/master 
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
