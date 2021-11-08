@@ -341,15 +341,23 @@ git status
 git stash -u
 git status
 clear
+  
 git stash branch newchanges
+  it will do following:
+  creates a new branch called newchanges, 
+  switch into the new branch
+  stash applied
+  drop stash
+  
 git stash list
 git status
 rm new.md
 git add .
 git status
 git commit
-git checkout master
-git merge newchanges
+  
+git checkout master -- move into master
+git merge newchanges -- merge all changes from feature branch into master branch
 git branch -d newchanges
 git branch
 clear
