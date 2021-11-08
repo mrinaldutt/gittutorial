@@ -222,8 +222,28 @@ comparing local master branch and remote master brnch:
 git diff master origin/master 
 
 -----------------------------------------------------------------------------------------------------------------------
+  **Branching and Merging**
+  git branch -a
+  it will return local and remote branches
+  it also returns the current active branch
+  
+  create new branch: git branch mynewbranch
+  switch new branch: git checkout mynewbranch
+  
+  check history: git log --oneline --decorate
+  
+  renaming branch: git branch -m mynewbranch newbranch
+  
+  delete a branch: git branch -d newbranch ( remember, you can't delete a branch if you are in the same branch, so before deleting a branch move into some other branch)
 
-Git Stashing
+  **Happy path / Fast forward Merges**:
+  
+  
+ 
+  
+-----------------------------------------------------------------------------------------------------------------------  
+
+**Git Stashing**
 Simple Example
 How to simple path for stashing in Git.
 Command Listing
