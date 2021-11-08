@@ -223,4 +223,142 @@ git diff master origin/master
 
 -----------------------------------------------------------------------------------------------------------------------
 
-
+Git Stashing
+Simple Example
+How to simple path for stashing in Git.
+Command Listing
+pwd
+cd projects/starter-web
+pwd
+git status
+clear
+ls
+mate simple.html
+git status
+git stash
+git status
+mate simple.html
+clear
+ls
+mate README.md
+git status
+git commit -am "Quick fix in production to improve copyright notice"
+git status
+clear
+git stash apply
+mate simple.html
+git commit -am "Done with simple.html updates"
+git status
+clear
+git stash list
+git stash drop
+clear
+  
+  
+Stashing Untracked Files / Using Stash Pop
+Git does not include untracked (new) files with stash by default, however, we change change that. Also, we cover a new way to apply the most
+recent stash.
+Command Listing
+pwd
+git status
+clear
+git ls-files
+mate humans.txt
+git status
+mate ANewFile.txt
+git status
+git stash
+git status
+git stash apply
+git stash drop
+git stash list
+clear
+git status
+git stash -u
+clear
+git stash list
+mate README.md
+git commit -a
+git commit -a
+git status
+clear
+git stash pop
+clear
+git status
+rm ANewFile.txt
+git status
+git commit -am "Updates to humans file after stash pop"
+git status
+  
+  
+Managing Multiple Stashes
+Git's stash feature can support multiple stashes.
+Command Listing
+pwd
+git status
+clear
+ls
+mate simple.html
+git stash save "simple changes"
+clear
+mate index.html
+git stash save "index changes"
+mate README.md
+git stash save "Readme changes"
+git stash list
+git stash show stash@{1}
+clear
+git status
+git stash list
+git stash apply stash@{1}
+clear
+git status
+git stash list
+git stash drop stash@{1}
+git stash list
+clear
+git stash list
+git stash clear
+git stash list
+clear
+  
+  
+Stashing into a Branch
+We can use stash to move accidental changes into a feature branch.
+Command Listing
+pwd
+git status
+git stash list
+clear
+mate
+mate simple.html
+mate humans.txt
+git status
+git add index.html
+git status
+mate new.md
+git status
+git stash -u
+git status
+clear
+git stash branch newchanges
+git stash list
+git status
+rm new.md
+git add .
+git status
+git commit
+git checkout master
+git merge newchanges
+git branch -d newchanges
+git branch
+clear
+  
+  
+Section Cleanup
+Each section, we synchronize our changes with GitHub.
+Command Listing
+pwd
+git status
+git pull origin master
+git push origin master
