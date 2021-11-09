@@ -238,7 +238,31 @@ git diff master origin/master
 
   **Happy path / Fast forward Merges**:
   
-  
+  create new branch and switch: git checkout -b title-change 
+ make some changes from feature branch.
+ git commit from feature branch
+ 
+ now move into master branch.
+ git merge title-change (fast forward merges)
+ No cmmmits here.
+ 
+ **Happy Path/ Disable Fast forward merges**:
+ go to master: git merge title-change --no-ff
+ preserve commit message
+ 
+ **Automatic Merge**:
+ create new branch: git checkout -b simple-changes
+ modify some file
+ commit chnages: git commit -am "Adding team member to human"
+ switch to master: git checkout master
+ update some other file
+ commit: git commit -am "Adding instruction"
+ now check log: git log --oneline --graph --decorate --all (Here you can find 2 diff changes pn 2 diff branches)
+ git merge simple-changes -m "merging changes from simele changes into master"
+ 
+ 
+ 
+ 
  
   
 -----------------------------------------------------------------------------------------------------------------------  
