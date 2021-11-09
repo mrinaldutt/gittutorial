@@ -260,8 +260,50 @@ git diff master origin/master
  now check log: git log --oneline --graph --decorate --all (Here you can find 2 diff changes pn 2 diff branches)
  git merge simple-changes -m "merging changes from simele changes into master"
  
+ ---------------------------------------------------------------------------------------------------------------------
+   **Rebase**
+ 1. Create a feature branch : git checkout -b myfeature
+ 2. change somefile
+ 3. commit: git commit -am "saying thanks to my students"
+ 4. checkout master: git checkout master
+ 5. change readme file
+ 6. express commit: git commit -am "adding oneline into readme"
+ 7. check history: git log --oneline --decorate --all --graph
+ you can check master and myfeaure changes
+ 8. Now we want to incoroporate any changes happens in master. actually wants to rebase master into myfeautre
+ 9. back on myfeature: git checkout myfeature
+ 10. rebase: git rebase master (rewinding head, apply changes)
+ 11. check history: git log --oneline --decorate --all --graph
+ (here you can find first apply master changes and then feature changes)
+ 12. lets make another changes in feature branch: readme file
+ 13. express commit: git commit -am "adding another change after rebase"
+ 14. now back to master: git checkout master
+ 15. check the diff from master and feature: git diff master myfeature
+ 16. Now merge the changes: git merge myfeature ( it will end up with fast forward merge)
+ 17. git branch -d myfeature ( delete branch)
  
+ **Rebasing conflict**
+ 1.go to master, change any file
+ commit changes
+ 2. create new branch: git checkout -b bigtrouble
+ change the same file
+ commit changes
+ 3. now back to master: git checkout master
+ now change the same file
+ commit changes
+ 4. check history: git log --oneline --graph --decorate --all
  
+ **Aborting a rebase**
+ 1. go to bigtrouble branch: git checkout bigtrouble
+ see the diff: git difftool master bigtrouble
+ find out the conflicts
+ 2. Now try to rebase: git rebase master
+ you can find the conflict
+ failed to merge
+ 3. need to abort: git rebase --abort
+ 4. check status: git status
+ 
+ **rebae conflict and resolution**
  
  
   
