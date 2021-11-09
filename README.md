@@ -303,7 +303,32 @@ git diff master origin/master
  3. need to abort: git rebase --abort
  4. check status: git status
  
- **rebae conflict and resolution**
+ **rebase conflict and resolution**
+ 1. goto bigtrouble branch
+ 2. try to rebase: git rebase master ( as expected, it will received conflict)
+ 3. visual mergetool: git mergetool ( see the diff of version from diff branch)
+ 4. resolve conflicts, merge the code
+ 5. now add the file : git add simple.html
+ 6. now rebase continue: git rebase --continue
+ Great!, we have resolve git rebase conflicts
+ 7. now change the file again
+ 8. commit the file: git commit -am "Adding changes after rebase"
+ 9. now try to merge in master: git checkout master
+git merge bigtrouble ( result is fast forward merge)
+ 
+ **Pull with rebase**
+ 1. first get the latest version from repo: git pull origin master
+ 2. now push our changes: git push origin master ( so we should be synchronized)
+ 3. now we want to syncrhoznied changes from github into your local
+ lets few changes in your local, express commit
+ 4. now go to github, try to modify some file
+ 5. now update the references: git fetch origin master ( it will simply update the references from remote to local)
+ 6. now check git status: now my local master branch has been diverged, but we want to continue working
+ 7. we want my changes ahead of github changes, but we want the befits of git hub changes:
+ git pull --rebase origin master ( so now we have rebase our chnages from github to our master branch in local repository)
+ 8. check git log: git log --oneline --graph --decorate --all
+ you can find the origin master changes, then our local master changes
+ 
  
  
   
